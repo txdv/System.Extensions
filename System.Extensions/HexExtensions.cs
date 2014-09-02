@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace HexExtensions
+namespace System
 {
 	public static class HexExtensions
 	{

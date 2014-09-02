@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ArraySegmentExtensions
+namespace System
 {
 	public static class ArraySegmentExtensions
 	{
@@ -132,13 +132,16 @@ namespace ArraySegmentExtensions
 		{
 			return BitConverter.ToSingle(segment.Array, segment.Offset);
 		}
-	}
 
-	public static class EncodingExtensions
-	{
-		public static string GetString(this Encoding encoding, ArraySegment<byte> segment)
+		public static ArraySegment<T> ToArraySegment<T>(this T[] array, int offset = -1, int count = -1)
 		{
-			return encoding.GetString(segment.Array, segment.Offset, segment.Count);
+			if (offset == -1) {
+				offset = 0;
+			}
+			if (count == -1) {
+				count = array.Length;
+			}
+			return new ArraySegment<T>(array, offset, count);
 		}
 	}
 }
