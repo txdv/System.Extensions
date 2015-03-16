@@ -9,6 +9,16 @@ namespace System
 		{
 			return encoding.GetString(segment.Array, segment.Offset, segment.Count);
 		}
+		
+		public static string GetString(this Encoding encoding, ArraySegment<byte>? segment)
+		{
+			if (!segment.HasValue) {
+				return null;
+			} else {
+				var value = segment.Value;
+				return encoding.GetString(value.Array, value.Offset, value.Count);
+			}
+		}
 
 		public static ArraySegment<byte> GetArraySegment(this Encoding encoding, string text)
 		{
