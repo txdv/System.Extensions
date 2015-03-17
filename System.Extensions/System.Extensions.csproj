@@ -35,6 +35,7 @@
     <Compile Include="ArraySegmentExtensions.cs" />
     <Compile Include="EncodingExtensions.cs" />
     <Compile Include="HexExtensions.cs" />
+    <Compile Include="TcpClient.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
