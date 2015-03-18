@@ -37,6 +37,7 @@
     <Compile Include="HexExtensions.cs" />
     <Compile Include="UdpClientExtensions.cs" />
     <Compile Include="TcpClientExtensions.cs" />
+    <Compile Include="StreamExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
