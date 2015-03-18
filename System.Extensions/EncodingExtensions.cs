@@ -22,8 +22,7 @@ namespace System
 
 		public static ArraySegment<byte> GetArraySegment(this Encoding encoding, string text)
 		{
-			return default(ArraySegment<byte>);
-			//return encoding.GetBytes(text).ToArraySegment();
+			return encoding.GetBytes(text).ToArraySegment();
 		}
 
 		public static string ToString(this ArraySegment<byte> segment, Encoding encoding)
