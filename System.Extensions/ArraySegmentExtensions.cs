@@ -79,7 +79,7 @@ namespace System
 
 		static void Swap<T>(ref T first, ref T second)
 		{
-			var tmp = second;
+			var tmp = first;
 			first = second;
 			second = tmp;
 		}
@@ -87,9 +87,7 @@ namespace System
 		public static ArraySegment<T> Reverse<T> (this ArraySegment<T> segment)
 		{
 			for (int i = 0; i < segment.Count/2; i++) {
-				var tmp = segment.Array[segment.Offset + i];
-				segment.Array[segment.Offset + i] = segment.Array[segment.Offset + segment.Count - 1 - i];
-				segment.Array[segment.Offset + segment.Count - 1 - i] = tmp;
+				Swap(ref segment.Array[segment.Offset + i], ref segment.Array[segment.Offset + segment.Count - 1 - i]);
 			}
 			return segment;
 		}
