@@ -25,5 +25,15 @@ namespace System
 			return default(ArraySegment<byte>);
 			//return encoding.GetBytes(text).ToArraySegment();
 		}
+
+		public static string ToString(this ArraySegment<byte> segment, Encoding encoding)
+		{
+			return encoding.GetString(segment);
+		}
+
+		public static string ToString(byte[] buffer, Encoding encoding)
+		{
+			return encoding.GetString(buffer);
+		}
 	}
 }
