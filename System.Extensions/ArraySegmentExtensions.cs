@@ -96,11 +96,14 @@ namespace System
 
 		public static IEnumerable<ArraySegment<T>> Slice<T>(this ArraySegment<T> segment, int size)
 		{
-			while (segment.Count > size) {
+			while (segment.Count >= size) {
 				yield return segment.Take(size);
 				segment = segment.Skip(size);
 			}
-			yield return segment;
+
+			if (!segment.IsEmpty()) {
+				yield return segment;
+			}
 		}
 
 		public static bool ContainsOnly(this ArraySegment<byte> segment, byte value)
@@ -142,6 +145,18 @@ namespace System
 				count = array.Length;
 			}
 			return new ArraySegment<T>(array, offset, count);
+		}
+
+		public static IEnumerable<ArraySegment<T>> Split<T>(this ArraySegment<T> segment, int size)
+		{
+			while (segment.Count >= size) {
+				yield return segment.Take(size);
+				segment = segment.Skip(size);
+			}
+
+			if (!segment.IsEmpty()) {
+				yield return segment;
+			}
 		}
 	}
 }
