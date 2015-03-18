@@ -38,6 +38,7 @@
     <Compile Include="UdpClientExtensions.cs" />
     <Compile Include="TcpClientExtensions.cs" />
     <Compile Include="StreamExtensions.cs" />
+    <Compile Include="SocketExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
