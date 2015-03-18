@@ -124,16 +124,6 @@ namespace System
 			return -1;
 		}
 
-		public static int ToInt(this ArraySegment<byte> segment)
-		{
-			return BitConverter.ToInt32(segment.Array, segment.Offset);
-		}
-
-		public static float ToFloat(this ArraySegment<byte> segment)
-		{
-			return BitConverter.ToSingle(segment.Array, segment.Offset);
-		}
-
 		public static ArraySegment<T> ToArraySegment<T>(this T[] array, int offset = -1, int count = -1)
 		{
 			if (offset == -1) {
@@ -145,17 +135,64 @@ namespace System
 			return new ArraySegment<T>(array, offset, count);
 		}
 
-		public static IEnumerable<ArraySegment<T>> Split<T>(this ArraySegment<T> segment, int size)
-		{
-			while (segment.Count >= size) {
-				yield return segment.Take(size);
-				segment = segment.Skip(size);
-			}
+		#region BitConverter
 
-			if (!segment.IsEmpty()) {
-				yield return segment;
-			}
+		public static bool ToBoolean(this ArraySegment<byte> segment, int offset = 0)
+		{
+			return BitConverter.ToBoolean(segment.Array, segment.Offset + offset);
 		}
+
+		public static char ToChar(this ArraySegment<byte> segment, int offset = 0)
+		{
+			return BitConverter.ToChar(segment.Array, segment.Offset + offset);
+		}
+
+		public static double ToDouble(this ArraySegment<byte> segment, int offset = 0)
+		{
+			return BitConverter.ToDouble(segment.Array, segment.Offset + offset);
+		}
+
+		public static short ToInt16(this ArraySegment<byte> segment, int offset = 0)
+		{
+			return BitConverter.ToInt16(segment.Array, segment.Offset + offset);
+		}
+
+		public static int ToInt32(this ArraySegment<byte> segment, int offset = 0)
+		{
+			return BitConverter.ToInt32(segment.Array, segment.Offset);
+		}
+
+		public static long ToInt64(this ArraySegment<byte> segment, int offset = 0)
+		{
+			return BitConverter.ToInt64(segment.Array, offset);
+		}
+
+		public static float ToSingle(this ArraySegment<byte> segment, int offset = 0)
+		{
+			return BitConverter.ToSingle(segment.Array, segment.Offset + offset);
+		}
+
+		public static ushort ToUInt16(this ArraySegment<byte> segment, int offset = 0)
+		{
+			return BitConverter.ToUInt16(segment.Array, segment.Offset + offset);
+		}
+
+		public static uint ToUInt32(this ArraySegment<byte> segment, int offset = 0)
+		{
+			return BitConverter.ToUInt32(segment.Array, segment.Offset);
+		}
+
+		public static ulong ToUInt64(this ArraySegment<byte> segment, int offset = 0)
+		{
+			return BitConverter.ToUInt64(segment.Array, offset);
+		}
+
+		public static float ToFloat(this ArraySegment<byte> segment, int offset = 0)
+		{
+			return BitConverter.ToSingle(segment.Array, segment.Offset + offset);
+		}
+
+		#endregion
 	}
 }
 
