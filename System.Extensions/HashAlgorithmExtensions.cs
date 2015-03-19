@@ -10,6 +10,16 @@ namespace System.Security.Cryptography
 			hashAlgorithm.ComputeHash(buffer.Array, buffer.Offset, buffer.Count);
 		}
 
+		public static void TransformBlock(this HashAlgorithm hashAlgorithm, byte[] input, byte[] outputBuffer, int outputOffset)
+		{
+			hashAlgorithm.TransformBlock(input, 0, input.Length, outputBuffer, outputOffset);
+		}
+
+		public static void TransformBlock(this HashAlgorithm hashAlgorithm, byte[] input, byte[] outputBuffer)
+		{
+			hashAlgorithm.TransformBlock(input, 0, input.Length, outputBuffer, 0);
+		}
+
 		public static void TransformBlock(this HashAlgorithm hashAlgorithm, ArraySegment<byte> input, byte[] outputBuffer, int outputOffset)
 		{
 			hashAlgorithm.TransformBlock(input.Array, input.Offset, input.Count, outputBuffer, outputOffset);
@@ -30,6 +40,11 @@ namespace System.Security.Cryptography
 		public static void TransformFinalBlock(this HashAlgorithm hashAlgorithm)
 		{
 			hashAlgorithm.TransformFinalBlock(emptyBuffer, 0, 0);
+		}
+
+		public static void TransformFinalBlock(this HashAlgorithm hashAlgorithm, byte[] buffer)
+		{
+			hashAlgorithm.TransformFinalBlock(buffer, 0, buffer.Length);
 		}
 	}
 }
