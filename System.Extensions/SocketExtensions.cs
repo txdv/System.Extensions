@@ -71,6 +71,11 @@ namespace System
 
 		#region Receive
 
+		public static int Receive(this Socket socket, byte[] buffer, int offset, int count)
+		{
+			return socket.Receive(buffer, offset, count, SocketFlags.None);
+		}
+
 		public static int Receive(this Socket socket, ArraySegment<byte> segment, SocketFlags socketFlags)
 		{
 			return socket.Receive(segment.Array, segment.Offset, segment.Count, socketFlags);
