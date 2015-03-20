@@ -29,19 +29,19 @@ namespace System
 
 		#region Send
 
-		public static void Send(this Socket socket, ArraySegment<byte> segment, SocketFlags socketFlags)
+		public static int Send(this Socket socket, ArraySegment<byte> segment, SocketFlags socketFlags)
 		{
-			socket.Send(segment.Array, segment.Offset, segment.Count, socketFlags);
+			return socket.Send(segment.Array, segment.Offset, segment.Count, socketFlags);
 		}
 
-		public static void Send(this Socket socket, ArraySegment<byte> segment)
+		public static int Send(this Socket socket, ArraySegment<byte> segment)
 		{
-			socket.Send(segment.Array, segment.Offset, segment.Count, SocketFlags.None);
+			return socket.Send(segment.Array, segment.Offset, segment.Count, SocketFlags.None);
 		}
 
-		public static void Send(this Socket socket, byte[] buffer, int offset, int count)
+		public static int Send(this Socket socket, byte[] buffer, int offset, int count)
 		{
-			socket.Send(buffer.ToArraySegment(offset, count));
+			return socket.Send(buffer.ToArraySegment(offset, count));
 		}
 
 		public static Task<int> SendAsync(this Socket socket, ArraySegment<byte> segment, SocketFlags socketFlags)
