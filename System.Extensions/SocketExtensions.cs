@@ -196,6 +196,25 @@ namespace System
 		{
 			return socket.SendToAsync(segment.Array, segment.Offset, segment.Count, SocketFlags.None, remoteEndPoint);
 		}
+
+		public static void ReceiveBlock(this Socket socket, byte[] buffer, int offset, int count)
+		{
+			while (count > 0) {
+				int n = socket.Receive(buffer, offset, count);
+				offset += n;
+				count -= n;
+			}
+		}
+
+		public static void ReceiveBlock(this Socket socket, byte[] buffer)
+		{
+			socket.ReceiveBlock(buffer, 0, buffer.Length);
+		}
+
+		public static void ReceiveBlock(this Socket socket, ArraySegment<byte> buffer)
+		{
+			socket.ReceiveBlock(buffer.Array, buffer.Offset, buffer.Count);
+		}
 	}
 }
 

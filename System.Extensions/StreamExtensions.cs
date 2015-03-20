@@ -143,6 +143,25 @@ namespace System.IO
 		}
 
 		#endregion
+
+		public static void ReadBlock(this Stream stream, byte[] buffer, int offset, int count)
+		{
+			while (count > 0) {
+				int n = stream.Read(buffer, offset, count);
+				offset += n;
+				count -= n;
+			}
+		}
+
+		public static void ReadBlock(this Stream stream, byte[] buffer)
+		{
+			stream.ReadBlock(buffer, 0, buffer.Length);
+		}
+
+		public static void ReadBlock(this Stream stream, ArraySegment<byte> buffer)
+		{
+			stream.ReadBlock(buffer.Array, buffer.Offset, buffer.Count);
+		}
 	}
 }
 
