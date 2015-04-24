@@ -5,9 +5,9 @@ namespace System.Security.Cryptography
 {
 	public static class HashAlgorithmExtensions
 	{
-		public static void ComputeHash(this HashAlgorithm hashAlgorithm, ArraySegment<byte> buffer)
+		public static byte[] ComputeHash(this HashAlgorithm hashAlgorithm, ArraySegment<byte> buffer)
 		{
-			hashAlgorithm.ComputeHash(buffer.Array, buffer.Offset, buffer.Count);
+			return hashAlgorithm.ComputeHash(buffer.Array, buffer.Offset, buffer.Count);
 		}
 
 		public static void TransformBlock(this HashAlgorithm hashAlgorithm, byte[] input, byte[] outputBuffer, int outputOffset)
