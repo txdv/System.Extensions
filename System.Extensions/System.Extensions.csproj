@@ -41,6 +41,7 @@
     <Compile Include="SocketExtensions.cs" />
     <Compile Include="HashAlgorithmExtensions.cs" />
     <Compile Include="ComputeHashExtensions.cs" />
+    <Compile Include="IntegralDictionaryExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
