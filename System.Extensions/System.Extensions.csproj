@@ -44,6 +44,8 @@
     <Compile Include="IntegralDictionaryExtensions.cs" />
     <Compile Include="CombinationExtensions.cs" />
     <Compile Include="NullableExtensions.cs" />
+    <Compile Include="PositionsExtensions.cs" />
+    <Compile Include="Ensure.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
