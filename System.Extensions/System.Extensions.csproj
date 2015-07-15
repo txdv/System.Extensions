@@ -43,6 +43,7 @@
     <Compile Include="ComputeHashExtensions.cs" />
     <Compile Include="IntegralDictionaryExtensions.cs" />
     <Compile Include="CombinationExtensions.cs" />
+    <Compile Include="NullableExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
