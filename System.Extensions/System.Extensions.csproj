@@ -46,6 +46,7 @@
     <Compile Include="NullableExtensions.cs" />
     <Compile Include="PositionsExtensions.cs" />
     <Compile Include="Ensure.cs" />
+    <Compile Include="DefaultExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
