@@ -12,7 +12,7 @@ namespace System.Security.Cryptography
 
 		public static byte[] ComputeHash(this ArraySegment<byte> data, HashAlgorithm hashAlgorithm)
 		{
-			return hashAlgorithm.ComputeHash(data);
+			return hashAlgorithm.ComputeHash(data.Array, data.Offset, data.Count);
 		}
 
 		public static byte[] ComputeHash(this byte[] data, HashAlgorithm hashAlgorithm)
