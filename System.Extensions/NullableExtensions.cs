@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace System.Extensions
+namespace System
 {
 	public static class NullableExtensions
 	{

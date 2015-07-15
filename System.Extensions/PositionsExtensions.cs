@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
-namespace System.Extensions
+namespace System.Collections.Generic
 {
 	public static class PositionsExtension
 	{

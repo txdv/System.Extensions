@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Text;
 using System.Net;
-using System.Net.Sockets;
 using System.Threading.Tasks;
 
-namespace System.Extensions
+namespace System.Net.Sockets
 {
 	public static class UdpClientExtensions
 	{

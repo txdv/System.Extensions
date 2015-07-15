@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace System.Extensions
+namespace System
 {
 	internal static class Ensure
 	{

@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace System.Extensions
+namespace System.Collections.Generic
 {
 	public static class DefaultExtensions
 	{
